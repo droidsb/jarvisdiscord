@@ -7,7 +7,7 @@ var numS=100000;
 var MyRN = "Solved";
 var answercode = "NAHFAMYOUAINTRIGHT";
 
-var Serena = require('./Serena.js');
+
 var theWord;
 var reacted=false;
 
