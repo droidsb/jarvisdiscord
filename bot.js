@@ -13,8 +13,8 @@ var reacted=false;
 
 var readline = require('readline-sync');
 
-var saveQ = JSON.parse(saveQim);
-var saveA = JSON.parse(saveAim);
+//var saveQ = JSON.parse(saveQim);
+//var saveA = JSON.parse(saveAim);
 var  math = require('mathjs');
 var questions = saveQ;
 var answers = saveA;
