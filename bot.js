@@ -7,14 +7,18 @@ var numS=100000;
 var MyRN = "Solved";
 var answercode = "NAHFAMYOUAINTRIGHT";
 
-
+//var Serena = require('./Serena.js');
 var theWord;
 var reacted=false;
 
 var readline = require('readline-sync');
+var fs = require('fs');
+var saveQim = fs.readFileSync('./learn.js_saves/learnQsave.js', "utf8");
+var saveAim = fs.readFileSync('./learn.js_saves/learnAsave.js', "utf8");
+var saveQTEMP = fs.readFileSync('./learn.js_saves/QtempSave.js', "utf8");
 
-//var saveQ = JSON.parse(saveQim);
-//var saveA = JSON.parse(saveAim);
+var saveQ = JSON.parse(saveQim);
+var saveA = JSON.parse(saveAim);
 var  math = require('mathjs');
 var questions = saveQ;
 var answers = saveA;
@@ -113,6 +117,8 @@ client.on("message", (message) => {
 
 setInterval(() => {
 
+var announcment = fs.readFileSync('./learn.js_saves/Message.js', "utf8");
+var messagechannel = fs.readFileSync('./learn.js_saves/Channel.js', "utf8");
 
 var Currentchannel = client.channels.get(messagechannel)
 
@@ -123,7 +129,7 @@ if(announcment!=0){
 		Currentchannel.send(announcment);
 		
 		announcment=0;
-		//fs.writeFileSync('./learn.js_saves/Message.js', 0);
+		fs.writeFileSync('./learn.js_saves/Message.js', 0);
 		//fs.writeFileSync('./learn.js_saves/Channel.js', 0);
 	
 	}
@@ -609,7 +615,7 @@ if(message.content.startsWith(prefix) && message.author.bot==false){
   
 	  var Q=QUpper.toLowerCase();
 	  //console.log("ERROR CHECK Q "+Q);
-	  //fs.writeFileSync('./learn.js_saves/QtempSave.js', Q);
+	  fs.writeFileSync('./learn.js_saves/QtempSave.js', Q);
   
 
 			/*while(check<questions.length){
@@ -660,7 +666,7 @@ if(message.content.startsWith(prefix) && message.author.bot==false){
 	if(message.author.bot==false){
 			if(answerKnown===false){
 			if(message.content.startsWith(prefix) && message.author.bot==false && Q!="what is my name?"){
-				//saveQTEMP = fs.readFileSync('./learn.js_saves/QtempSave.js', "utf8");
+				saveQTEMP = fs.readFileSync('./learn.js_saves/QtempSave.js', "utf8");
 				//say.speak("What is the answer to that question?", 'Serena');
 				message.channel.send("What is the answer to that question?");
 				}
@@ -690,10 +696,10 @@ if(message.content.startsWith(prefix) && message.author.bot==false){
 					A=0;
 					QA=0;
 					check=0;
-					//fs.writeFileSync('./learn.js_saves/QtempSave.js', '');
+					fs.writeFileSync('./learn.js_saves/QtempSave.js', '');
 					//answerKnown=false;
-					//fs.writeFileSync('./learn.js_saves/learnQsave.js', JSON.stringify(questions));	
-					//fs.writeFileSync('./learn.js_saves/learnAsave.js', JSON.stringify(answers));
+					fs.writeFileSync('./learn.js_saves/learnQsave.js', JSON.stringify(questions));	
+					fs.writeFileSync('./learn.js_saves/learnAsave.js', JSON.stringify(answers));
 					}
 		
   
